@@ -1,0 +1,89 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceGroupName": {
+            "required": true,
+            "type": "string"
+        },
+        "subscriptionId": {
+            "required": true,
+            "type": "string"
+        },
+        "resourceName": {
+            "required": true,
+            "type": "string"
+        },
+        "favoriteId": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Properties that define a favorite that is associated to an Application Insights component.",
+            "properties": {
+                "Category": {
+                    "description": "Favorite category, as defined by the user at creation time.",
+                    "type": "string"
+                },
+                "Config": {
+                    "description": "Configuration of this particular favorite, which are driven by the Azure portal UX. Configuration data is a string containing valid JSON",
+                    "type": "string"
+                },
+                "FavoriteId": {
+                    "description": "Internally assigned unique id of the favorite definition.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "FavoriteType": {
+                    "description": "Enum indicating if this favorite definition is owned by a specific user or is shared between all users with access to the Application Insights component.",
+                    "enum": [
+                        "shared",
+                        "user"
+                    ],
+                    "type": "string",
+                    "x-ms-enum": {
+                        "modelAsString": false,
+                        "name": "FavoriteType"
+                    }
+                },
+                "IsGeneratedFromTemplate": {
+                    "description": "Flag denoting wether or not this favorite was generated from a template.",
+                    "type": "boolean"
+                },
+                "Name": {
+                    "description": "The user-defined name of the favorite.",
+                    "type": "string"
+                },
+                "SourceType": {
+                    "description": "The source of the favorite definition.",
+                    "type": "string"
+                },
+                "Tags": {
+                    "description": "A list of 0 or more tags that are associated with this favorite definition",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "TimeModified": {
+                    "description": "Date and time in UTC of the last modification that was made to this favorite definition.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "UserId": {
+                    "description": "Unique user id of the specific user that owns this favorite.",
+                    "readOnly": true,
+                    "type": "string"
+                },
+                "Version": {
+                    "description": "This instance's version of the data model. This can change as new features are added that can be marked favorite. Current examples include MetricsExplorer (ME) and Search.",
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        }
+    }
+}

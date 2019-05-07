@@ -1,0 +1,135 @@
+{
+    "title": "ApplicationInsightsManagementClient",
+    "description": "Azure Application Insights client for favorites.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/applicationinsights-favorites_API/2015-05-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow.",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Favorites_List": {
+            "main": "./lib/actions/Favorites_List.js",
+            "title": "Gets a list of favorites defined within an Application Insights component.",
+            "description": "Gets a list of favorites defined within an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorites_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorites_Delete": {
+            "main": "./lib/actions/Favorites_Delete.js",
+            "title": "Remove a favorite that is associated to an Application Insights component.",
+            "description": "Remove a favorite that is associated to an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorites_Delete.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorites_Get": {
+            "main": "./lib/actions/Favorites_Get.js",
+            "title": "Get a single favorite by its FavoriteId, defined within an Application Insights component.",
+            "description": "Get a single favorite by its FavoriteId, defined within an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorites_Get.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorites_Update": {
+            "main": "./lib/actions/Favorites_Update.js",
+            "title": "Updates a favorite that has already been added to an Application Insights component.",
+            "description": "Updates a favorite that has already been added to an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorites_Update.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "Favorites_Add": {
+            "main": "./lib/actions/Favorites_Add.js",
+            "title": "Adds a new favorites to an Application Insights component.",
+            "description": "Adds a new favorites to an Application Insights component.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Favorites_Add.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
